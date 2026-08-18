@@ -45,9 +45,13 @@ export default function Navbar() {
               : "border border-transparent bg-transparent py-3.5"
           }`}
         >
-          <a href="#home" className="font-serif-display text-lg sm:text-xl" data-cursor="">
-            {siteConfig.personal.name}.
-          </a>
+          <a
+  href="#home"
+  className="relative -left-30 font-serif-display text-lg font-black text-[var(--color-ink)] sm:text-xl"
+  data-cursor=""
+>
+Sanskar
+</a>
 
           <nav className="hidden items-center gap-1 md:flex">
             {siteConfig.nav.map((item) => (
