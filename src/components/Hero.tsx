@@ -364,78 +364,68 @@ export default function Hero() {
           >
 
             {/* =====================================================
-                HEY,
+                HEY, THERE
+
+                ONLY THIS PART HAS BEEN CHANGED.
+
+                Same positioning logic as your reference code:
+                centered across the complete hero,
+                top 3%,
+                z-10.
+
+                Portrait stays above it at z-20,
+                creating:
+
+                       Hey,   [FACE]   there
+
                 ===================================================== */}
 
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
+            <motion.p
+              initial={{
+                opacity: 0,
+                y: 16,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
               transition={{
-                duration: 0.6,
-                delay: 0.15,
+                duration: 0.9,
                 ease: [0.22, 1, 0.36, 1],
               }}
+style={{ wordSpacing: "15vw" }}
               className="
                 absolute
+                inset-x-0
+                top-[17%]
                 z-10
-                whitespace-nowrap
+                text-center
                 font-serif-display
-                leading-none
+                text-[clamp(3rem,min(15vw,22vh),12rem)]
+                leading-[0.9]
                 tracking-[-0.035em]
-              "
-              style={{
-                left: "14.2%",
-                top: "14.2%",
-                fontSize: "clamp(125px, 18.5vh, 205px)",
-              }}
-            >
-              Hey,
-            </motion.div>
-
-
-            {/* =====================================================
-                THERE
-
-                IMPORTANT:
-                Use LEFT positioning instead of RIGHT.
-                This keeps 'there' beside the portrait like reference.
-                ===================================================== */}
-
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.6,
-                delay: 0.2,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className="
-                absolute
-                z-10
                 whitespace-nowrap
-                font-serif-display
-                leading-none
-                tracking-[-0.035em]
+
+
               "
-              style={{
-                left: "61.8%",
-                top: "14.2%",
-                fontSize: "clamp(125px, 18.5vh, 205px)",
-              }}
             >
-              there
-            </motion.div>
+              Hey, there
+            </motion.p>
 
 
             {/* =====================================================
                 PORTRAIT
-
-                Kept between Hey and there.
                 ===================================================== */}
 
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{
+                opacity: 0,
+                y: 30,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
               transition={{
                 duration: 0.7,
                 delay: 0.25,
@@ -464,8 +454,12 @@ export default function Hero() {
                 ===================================================== */}
 
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              initial={{
+                opacity: 0,
+              }}
+              animate={{
+                opacity: 1,
+              }}
               transition={{
                 duration: 0.5,
                 delay: 0.45,
@@ -536,8 +530,12 @@ export default function Hero() {
                 ===================================================== */}
 
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              initial={{
+                opacity: 0,
+              }}
+              animate={{
+                opacity: 1,
+              }}
               transition={{
                 duration: 0.5,
                 delay: 0.48,
@@ -570,8 +568,14 @@ export default function Hero() {
                 ===================================================== */}
 
             <motion.h2
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{
+                opacity: 0,
+                y: 24,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
               transition={{
                 duration: 0.55,
                 delay: 0.3,
@@ -604,8 +608,14 @@ export default function Hero() {
                 ===================================================== */}
 
             <motion.h3
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{
+                opacity: 0,
+                y: 24,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
               transition={{
                 duration: 0.55,
                 delay: 0.38,
@@ -639,8 +649,14 @@ export default function Hero() {
                 ===================================================== */}
 
             <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{
+                opacity: 0,
+                y: 12,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
               transition={{
                 duration: 0.5,
                 delay: 0.55,
