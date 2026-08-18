@@ -393,7 +393,7 @@ export default function Hero() {
                 duration: 0.9,
                 ease: [0.22, 1, 0.36, 1],
               }}
-style={{ wordSpacing: "15vw" }}
+style={{ wordSpacing: "20vw" }}
               className="
                 absolute
                 inset-x-0
