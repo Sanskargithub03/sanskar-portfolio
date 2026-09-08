@@ -33,11 +33,14 @@ export default function App() {
       setLoading(false);
       return;
     }
+
     const t = setTimeout(() => setLoading(false), 850);
+
     return () => clearTimeout(t);
   }, [reduced]);
 
-  const selectedProject = siteConfig.projects.find((p) => p.slug === selectedSlug) ?? null;
+  const selectedProject =
+    siteConfig.projects.find((p) => p.slug === selectedSlug) ?? null;
 
   return (
     <>
@@ -46,23 +49,49 @@ export default function App() {
       <Navbar />
 
       <main className="relative">
+        {/* Hero */}
         <Hero />
+
+        {/* How I Think */}
         <ThinkingColumns />
-        <ImpactStats />
-        <ProjectCarousel onOpenProject={setSelectedSlug} />
+
+        {/* Professional Experience */}
         <ExperienceSection />
+
+        {/* Product Work */}
+        <ProjectCarousel onOpenProject={setSelectedSlug} />
+
+        {/* Impact / Results */}
+        <ImpactStats />
+
+        {/* About */}
         <AboutSection />
+
+        {/* Skills */}
         <SkillGrid />
+
+        {/* Technical Background */}
         <TechnicalEdge />
+
+        {/* Achievements */}
         <Achievements />
+
+        {/* Gallery */}
         <Gallery />
+
+        {/* Contact */}
         <Contact />
       </main>
 
       <Footer />
 
       <AnimatePresence>
-        {selectedProject && <ProjectDetail project={selectedProject} onClose={() => setSelectedSlug(null)} />}
+        {selectedProject && (
+          <ProjectDetail
+            project={selectedProject}
+            onClose={() => setSelectedSlug(null)}
+          />
+        )}
       </AnimatePresence>
     </>
   );
