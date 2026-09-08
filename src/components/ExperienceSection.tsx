@@ -13,12 +13,10 @@ export default function ExperienceSection() {
     logo: "/images/gramiqlogo.png",
     period: "2026 — Present",
 
-    tags: [
-      "Product",
-      "Growth",
-      "Strategy",
-      "User Acquisition",
-    ],
+    website: "https://gramiq.ai/",
+    linkedin: "https://www.linkedin.com/company/gramiq/",
+
+    tags: ["Product", "Growth", "Strategy", "User Acquisition"],
 
     highlights: [
       {
@@ -113,41 +111,75 @@ export default function ExperienceSection() {
 
               {/* Main Experience Row */}
               <div className="grid grid-cols-[auto_auto_1fr_auto] items-center gap-5 sm:gap-8">
-                {/* Number */}
+                {/* Experience Number */}
                 <span className="font-display text-2xl text-[var(--color-line)] sm:text-3xl">
                   {String(i + 1).padStart(2, "0")}
                 </span>
 
-                {/* Logo */}
-                <motion.img
-                  initial={{
-                    opacity: 0,
-                    scale: 0.85,
-                  }}
-                  whileInView={{
-                    opacity: 1,
-                    scale: 1,
-                  }}
+                {/* Company Logo — Clickable */}
+                <motion.a
+                  href={exp.slug === "gramiq" ? exp.website : undefined}
+                  target={exp.slug === "gramiq" ? "_blank" : undefined}
+                  rel={exp.slug === "gramiq" ? "noopener noreferrer" : undefined}
+                  initial={{ opacity: 0, scale: 0.85 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
-                  animate={{
-                    scale: isHovered ? 1.08 : 1,
-                  }}
+                  animate={{ scale: isHovered ? 1.08 : 1 }}
                   transition={{ duration: 0.4 }}
-                  src={exp.logo}
-                  alt={`${exp.org} logo`}
-                  className="h-14 w-14 rounded-2xl border border-[var(--color-line)] bg-[var(--color-paper)] object-contain p-2 sm:h-16 sm:w-16"
-                  loading="lazy"
-                />
+                  className={
+                    exp.slug === "gramiq"
+                      ? "cursor-pointer"
+                      : "cursor-default"
+                  }
+                  aria-label={
+                    exp.slug === "gramiq"
+                      ? "Visit GramIQ website"
+                      : `${exp.org} logo`
+                  }
+                >
+                  <img
+                    src={exp.logo}
+                    alt={`${exp.org} logo`}
+                    className="h-14 w-14 rounded-2xl border border-[var(--color-line)] bg-[var(--color-paper)] object-contain p-2 sm:h-16 sm:w-16"
+                    loading="lazy"
+                  />
+                </motion.a>
 
-                {/* Role + Organization */}
+                {/* Role + Organization + Links */}
                 <div>
                   <p className="font-display text-2xl uppercase leading-none sm:text-3xl">
                     {exp.role}
                   </p>
 
-                  <p className="mt-2 text-[13px] text-[var(--color-taupe)]">
-                    {exp.org}
-                  </p>
+                  <div className="mt-2 flex flex-wrap items-center gap-2 text-[13px] text-[var(--color-taupe)]">
+                    <span>{exp.org}</span>
+
+                    {exp.slug === "gramiq" && (
+                      <>
+                        <span className="text-[var(--color-line)]">·</span>
+
+                        <a
+                          href={exp.website}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="transition-colors hover:text-[var(--color-ink)]"
+                        >
+                          Website ↗
+                        </a>
+
+                        <span className="text-[var(--color-line)]">·</span>
+
+                        <a
+                          href={exp.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="transition-colors hover:text-[var(--color-ink)]"
+                        >
+                          LinkedIn ↗
+                        </a>
+                      </>
+                    )}
+                  </div>
 
                   {/* Tags */}
                   <div className="mt-3 flex flex-wrap gap-2">
@@ -251,22 +283,67 @@ export default function ExperienceSection() {
                 aria-expanded={open}
               >
                 <div className="flex items-center gap-4">
-                  {/* Mobile Logo */}
-                  <img
-                    src={exp.logo}
-                    alt={`${exp.org} logo`}
-                    className="h-11 w-11 rounded-xl border border-[var(--color-line)] bg-[var(--color-paper)] object-contain p-1.5"
-                    loading="lazy"
-                  />
+                  {/* Mobile Logo — Clickable */}
+                  {exp.slug === "gramiq" ? (
+                    <a
+                      href={exp.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      aria-label="Visit GramIQ website"
+                    >
+                      <img
+                        src={exp.logo}
+                        alt={`${exp.org} logo`}
+                        className="h-11 w-11 rounded-xl border border-[var(--color-line)] bg-[var(--color-paper)] object-contain p-1.5"
+                        loading="lazy"
+                      />
+                    </a>
+                  ) : (
+                    <img
+                      src={exp.logo}
+                      alt={`${exp.org} logo`}
+                      className="h-11 w-11 rounded-xl border border-[var(--color-line)] bg-[var(--color-paper)] object-contain p-1.5"
+                      loading="lazy"
+                    />
+                  )}
 
                   <div>
                     <p className="font-display text-xl uppercase leading-none">
                       {exp.role}
                     </p>
 
-                    <p className="mt-1 text-[12px] text-[var(--color-taupe)]">
-                      {exp.org}
-                    </p>
+                    <div className="mt-1 flex flex-wrap items-center gap-2 text-[12px] text-[var(--color-taupe)]">
+                      <span>{exp.org}</span>
+
+                      {exp.slug === "gramiq" && (
+                        <>
+                          <span className="text-[var(--color-line)]">·</span>
+
+                          <a
+                            href={exp.website}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            className="transition-colors hover:text-[var(--color-ink)]"
+                          >
+                            Website ↗
+                          </a>
+
+                          <span className="text-[var(--color-line)]">·</span>
+
+                          <a
+                            href={exp.linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            className="transition-colors hover:text-[var(--color-ink)]"
+                          >
+                            LinkedIn ↗
+                          </a>
+                        </>
+                      )}
+                    </div>
                   </div>
                 </div>
 
