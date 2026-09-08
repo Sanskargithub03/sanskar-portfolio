@@ -55,14 +55,14 @@ export default function App() {
         {/* How I Think */}
         <ThinkingColumns />
 
+        {/* Impact / Results */}
+        <ImpactStats />
+
         {/* Professional Experience */}
         <ExperienceSection />
 
         {/* Product Work */}
         <ProjectCarousel onOpenProject={setSelectedSlug} />
-
-        {/* Impact / Results */}
-        <ImpactStats />
 
         {/* About */}
         <AboutSection />
