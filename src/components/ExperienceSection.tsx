@@ -8,31 +8,39 @@ export default function ExperienceSection() {
 
   const gramiqExperience = {
     slug: "gramiq",
-    role: "Product & Business Intern",
+    role: "Fundraising, Growth & Strategy Intern",
     org: "GramIQ",
     logo: "/images/gramiqlogo.png",
     period: "2026 — Present",
-    tags: ["Product", "Business Analysis", "Research", "Strategy"],
+
+    tags: [
+      "Product",
+      "Growth",
+      "Strategy",
+      "User Acquisition",
+    ],
+
     highlights: [
       {
         value: "Product",
-        label: "Problem & opportunity research",
+        label: "User & market insights",
       },
       {
         value: "Growth",
-        label: "Funding & partnership research",
+        label: "Acquisition & outreach",
       },
       {
         value: "Strategy",
-        label: "Market & ecosystem analysis",
+        label: "Business & ecosystem research",
       },
     ],
+
     impact: [
-      "Conduct product, market, competitor, and ecosystem research to identify product and business opportunities.",
-      "Analyze user and business problems, translating research into structured insights and actionable recommendations.",
-      "Research grants, CSR programs, awards, accelerators, and funding opportunities to support strategic growth initiatives.",
-      "Evaluate CSR and partnership opportunities and structure findings to support business decision-making and outreach.",
-      "Support growth, social media, and cross-functional initiatives across product, business, research, and strategy.",
+      "Research users, markets, competitors, and the agri-tech ecosystem to identify customer needs, business opportunities, and product insights.",
+      "Support user acquisition and outreach initiatives by identifying target segments, channels, and relevant communities for GramIQ's products and initiatives.",
+      "Translate market and user research into structured insights that inform product, growth, and strategic decision-making.",
+      "Identify and evaluate grants, CSR programs, accelerators, awards, and partnership opportunities to support fundraising and business growth.",
+      "Develop social media and outreach strategies to improve product visibility, communicate value propositions, and strengthen ecosystem engagement.",
     ],
   };
 
@@ -43,6 +51,7 @@ export default function ExperienceSection() {
       id="experience"
       className="relative mx-auto w-full max-w-7xl px-5 py-24 sm:px-8 sm:py-32"
     >
+      {/* Section Header */}
       <div className="mb-14 sm:mb-20">
         <span className="eyebrow">Growth &amp; execution</span>
 
@@ -55,7 +64,9 @@ export default function ExperienceSection() {
 
       <div className="hairline" />
 
-      {/* Desktop Experience */}
+      {/* =========================
+          DESKTOP EXPERIENCE
+      ========================== */}
       <div className="hidden sm:block">
         {experiences.map((exp, i) => {
           const isDimmed = hovered !== null && hovered !== i;
@@ -100,13 +111,14 @@ export default function ExperienceSection() {
                 }}
               />
 
+              {/* Main Experience Row */}
               <div className="grid grid-cols-[auto_auto_1fr_auto] items-center gap-5 sm:gap-8">
-                {/* Experience Number */}
+                {/* Number */}
                 <span className="font-display text-2xl text-[var(--color-line)] sm:text-3xl">
                   {String(i + 1).padStart(2, "0")}
                 </span>
 
-                {/* Company Logo */}
+                {/* Logo */}
                 <motion.img
                   initial={{
                     opacity: 0,
@@ -221,7 +233,9 @@ export default function ExperienceSection() {
         })}
       </div>
 
-      {/* Mobile Accordion */}
+      {/* =========================
+          MOBILE ACCORDION
+      ========================== */}
       <div className="sm:hidden">
         {experiences.map((exp, i) => {
           const open = openMobile === i;
@@ -256,7 +270,7 @@ export default function ExperienceSection() {
                   </div>
                 </div>
 
-                {/* Expand Button */}
+                {/* Expand Icon */}
                 <motion.span
                   animate={{
                     rotate: open ? 45 : 0,
@@ -288,7 +302,7 @@ export default function ExperienceSection() {
                   ))}
                 </div>
 
-                {/* Experience Details */}
+                {/* Details */}
                 <ul className="grid gap-2 pb-6">
                   {exp.impact.map((line) => (
                     <li
